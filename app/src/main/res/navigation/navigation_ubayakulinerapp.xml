@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_ubayakulinerapp"
+    app:startDestination="@id/itemHome">
+
+    <fragment
+        android:id="@+id/itemHome"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantListFragment"
+            app:destination="@id/restaurantListFragment" />
+        <action
+            android:id="@+id/action_itemHome_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantListFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.RestaurantListFragment"
+        android:label="Restaurant List"
+        tools:layout="@layout/fragment_restaurant_list">
+        <action
+            android:id="@+id/action_restaurantListFragment_to_homeFragment"
+            app:destination="@id/itemHome"
+            app:popUpTo="@id/itemHome"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_restaurantListFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBookmark"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.BookmarkFragment"
+        android:label="Bookmark Screen"
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_itemBookmark_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.ProfileFragment"
+        android:label="Profile Screen"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_itemProfile_to_profileDetailFragment"
+            app:destination="@id/profileDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.RestaurantDetailFragment"
+        android:label="Restaurant Detail"
+        tools:layout="@layout/fragment_restaurant_detail">
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_restaurantListFragment"
+            app:destination="@id/restaurantListFragment"
+            app:popUpTo="@id/restaurantListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="restaurantID"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_restaurantMenuDetailFragment"
+            app:destination="@id/restaurantMenuDetailFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_itemHome"
+            app:destination="@id/itemHome"
+            app:popUpTo="@id/itemHome"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_itemBookmark"
+            app:destination="@id/itemBookmark"
+            app:popUpTo="@id/itemBookmark"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_restaurantAboutFragment"
+            app:destination="@id/restaurantAboutFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_restaurantMenuFragment"
+            app:destination="@id/restaurantMenuFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_restaurantReviewsFragment"
+            app:destination="@id/restaurantReviewsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/restaurantMenuDetailFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.RestaurantMenuDetailFragment"
+        android:label="fragment_restaurant_menu_detail"
+        tools:layout="@layout/fragment_restaurant_menu_detail" >
+        <argument
+            android:name="restaurantMenuID"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/restaurantAboutFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.RestaurantAboutFragment"
+        android:label="fragment_restaurant_about"
+        tools:layout="@layout/fragment_restaurant_about" >
+        <action
+            android:id="@+id/action_restaurantAboutFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment"
+            app:popUpTo="@id/restaurantDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantMenuFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.RestaurantMenuFragment"
+        android:label="fragment_restaurant_menu"
+        tools:layout="@layout/fragment_restaurant_menu" >
+        <action
+            android:id="@+id/action_restaurantMenuFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment"
+            app:popUpTo="@id/restaurantDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantReviewsFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.RestaurantReviewsFragment"
+        android:label="fragment_restaurant_reviews"
+        tools:layout="@layout/fragment_restaurant_reviews" >
+        <action
+            android:id="@+id/action_restaurantReviewsFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment"
+            app:popUpTo="@id/restaurantDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileDetailFragment"
+        android:name="com.ubaya.a160417097_ubayakuliner.view.fragment.ProfileDetailFragment"
+        android:label="Profile Detail"
+        tools:layout="@layout/fragment_profile_detail">
+        <action
+            android:id="@+id/action_profileDetailFragment_to_itemProfile"
+            app:destination="@id/itemProfile"
+            app:popUpTo="@id/itemProfile"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
